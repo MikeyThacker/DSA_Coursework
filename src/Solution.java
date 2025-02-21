@@ -17,7 +17,17 @@ public class Solution {
 
     public static int matrixMaxValue(int[][] matrix) {
         // Returns the maximum value in the matrix
-        return blockMaxValue(matrix, 0, 0, matrix.length - 1, matrix[0].length - 1);
+
+        int maxEntry = matrix[0][0];
+
+        int lastMaxColumn = 0;
+
+        for (int i = 0; i < matrix.length; i++) {
+            int maxInRow = maxIndex(matrix[i], lastMaxColumn, matrix[i].length - 1);
+            lastMaxColumn = maxInRow;
+            maxEntry = Math.max(maxEntry, matrix[i][maxInRow]);
+        }
+        return maxEntry;
     }
 
     public static int blockMaxValue(int[][] matrix, int startRow, int startCol, int
