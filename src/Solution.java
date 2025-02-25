@@ -10,9 +10,7 @@ public class Solution {
                 maxIndex = i;
             }
         }
-
         return maxIndex;
-        // O(m) as requires to search all numbers in row from start to end
     }
 
     public static int matrixMaxValue(int[][] matrix) {
@@ -35,7 +33,6 @@ public class Solution {
         // Returns the maximum entry in the matrix between columns startCol, endCol inclusive and between rows startRow,
         // endRow inclusive
         int maxEntry = matrix[startRow][startCol];
-
         int lastMaxColumn = startCol;
 
         for (int i = startRow; i <= endRow; i++) {
@@ -44,7 +41,6 @@ public class Solution {
             maxEntry = Math.max(maxEntry, matrix[i][maxInRow]);
         }
         return maxEntry;
-
     }
 }
 
